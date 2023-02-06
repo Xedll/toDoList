@@ -1,0 +1,21 @@
+@import "resetStyle.scss";
+
+body{
+	padding: 20px;
+}
+
+.form {
+   position: absolute;
+   top: 50%;
+   right: 50%;
+   display: flex;
+   flex-direction: column;
+   &>*{
+      padding: 20px;
+      background: pink;
+   }
+}
+
+.sticker {
+   padding: 10px;
+}
