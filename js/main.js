@@ -1,6 +1,5 @@
 // @ts-nocheck
 window.onload = () => {
-   const deleteButtonForSticker = document.querySelector('.sticker__delete')
    const submitButton = document.querySelector('.form__button')
    const todoTitle = document.querySelector('.form__title')
    const todoDesc = document.querySelector('.form__desc')
@@ -8,12 +7,12 @@ window.onload = () => {
 
    let taskList = [];
 
-   if (localStorage.taskList) {
+   if (localStorage.taskList) { //Render data
       showLocalData(JSON.parse(localStorage.taskList));
       taskList = JSON.parse(localStorage.taskList)
    }
 
-   console.log(deleteButtonForSticker)
+   //Stickers Block
 
    function Sticker(title, content) {
       this.class = "Sticker";
@@ -23,18 +22,21 @@ window.onload = () => {
    }
 
    function setStickerDataToHTML(sticker) {
-      return `<div class="sticker"><div class="sticker__title">${sticker.title}</div><div class="sticker__content">${sticker.content}</div><button class="sticker__delete">Delete</button></div>`
+      return `<div data-id="${sticker.id}" class="sticker"><div class="sticker__title">${sticker.title}</div><div class="sticker__content">${sticker.content}</div><button class="sticker__delete">Delete</button></div>`
    }
+
 
    function deleteSticker(sticker) {
-      console.log(sticker)
+      for (let item of taskList) {
+         if (item.class == 'Sticker' && item.id == sticker.dataset.id) {
+            taskList.splice(taskList.indexOf(item), 1)
+         }
+      }
+      setDataToLocalStorage()
+      showLocalData(taskList)
    }
 
-   deleteButtonForSticker.addEventListener('click', () => {
-      let sticker = e.target
-      deleteSticker(12)
-   })
-
+   // Data Block
 
    function showLocalData(localData) {
       nodeForStickers.innerHTML = '';
@@ -50,14 +52,16 @@ window.onload = () => {
       }
 
 
-      for (let item of stickerArray) {
+      for (let item of stickerArray) { //Render stickers
          nodeForStickers.insertAdjacentHTML('beforeend', item)
       }
 
+      for (let button of document.querySelectorAll('.sticker__delete')) { //Handler for deleting stickers
+         button.addEventListener('click', () => {
+            deleteSticker(button.closest('.sticker'))
+         })
+      }
    }
-
-
-
 
    function setDataToLocalStorage() {
       localStorage.taskList = JSON.stringify(taskList);
@@ -80,19 +84,13 @@ window.onload = () => {
       }
    })
 
-   document.querySelector('.dataInLocal').addEventListener('click', () => {
-      localStorage.taskList = JSON.stringify(taskList);
-      console.log(localStorage.taskList)
-   })
-
-
-
    document.querySelector('.resetLocal').addEventListener('click', () => {
       localStorage.taskList = ''
    })
    document.querySelector('.resetData').addEventListener('click', () => {
       taskList = [];
    })
+
 
 
    document.querySelector('.forConsoleLocal').addEventListener('click', () => {
