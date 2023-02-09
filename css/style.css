@@ -90,4 +90,14 @@ body {
 
 .sticker {
   padding: 10px;
+  display: inline-flex;
+  flex-direction: column;
+}
+.sticker > * {
+  margin-bottom: 5px;
+}
+
+textarea {
+  background: lightgray;
+  resize: none;
 }
