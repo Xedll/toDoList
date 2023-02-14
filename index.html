@@ -1,28 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Document</title>
+   <title>Notes</title>
    <link rel="stylesheet" href="css/style.css">
+   <link rel="icon" href="img/icons/medical_history_tasks_to_do_list_icon_149282.ico">
 </head>
 
 <body>
-   <div class="stickers">
-
+   <button class="create__Sticker btn">Create Sticker</button>
+   <div class="content">
+      <div class="stickers">
+      </div>
+      <aside class="checkboxes">
+         <div class="checkboxes__uncompleted">
+            <div class="checkboxes__uncompleted__title">Uncompleted</div>
+            <div class="checkboxes__uncompleted__content"></div>
+         </div>
+         <div class="checkboxes__completed">
+            <div class="checkboxes__completed__title">Completed</div>
+            <div class="checkboxes__completed__content"></div>
+         </div>
+      </aside>
    </div>
-   <div class="form">
-      <input type="text" class="form__title forForm" placeholder="text">
-      <input type="text" class="form__desc forForm" placeholder="text">
-      <button class="form__button">Submit</button>
+   <button class="sticker__apply"></button>
+   <div class="admin__panel disabled">
+      <button class="dataInLocal btn">Data in Local Storage</button>
+      <button class="forConsoleLocal btn">Console Local</button>
+      <button class="forConsoleData btn">Console Data</button>
+      <button class="resetLocal btn">Reset Local</button>
+      <button class="resetData btn">Reset Data</button>
+      <script src="js/main.js"></script>
    </div>
-   <button class="dataInLocal">Data in Local Storage</button>
-   <button class="forConsoleLocal">Console Local</button>
-   <button class="forConsoleData">Console Data</button>
-   <button class="resetLocal">Reset Local</button>
-   <button class="resetData">Reset Data</button>
-   <script src="/js/main.js"></script>
+   <div class="popUp disabled">
+      <div class="form">
+         <div class="form__content">
+            <select class="form__select">
+               <option value="None">-- Select what u wanna create --</option>
+               <option value="Sticker">Note</option>
+               <option value="Checkbox">Checkbox</option>
+            </select>
+            <div class="form__forStickers disabled">
+               <textarea type="text" class="form__titleForSticker forForm" placeholder="Title"></textarea>
+               <textarea type="text" class="form__descForSticker forForm" placeholder="Content"></textarea>
+            </div>
+            <div class="form__forCheckboxes disabled">
+               <textarea type="text" class="form__titleForCheckbox forForm" placeholder="Content"></textarea>
+            </div>
+         </div>
+         <button class="form__button btn">Submit</button>
+      </div>
+   </div>
 </body>
 
 </html>
