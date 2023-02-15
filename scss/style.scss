@@ -18,6 +18,7 @@ body{
    font-family: 'Source Sans Pro', sans-serif;
 	padding: 20px;
    background: $bg-color2;
+   position: relative;
 }
 
 .form {
@@ -278,5 +279,37 @@ textarea {
    .checkboxes {
       border: 0;
       padding-left: 0;
+   }
+   .popUp {
+      &>*{
+         right: 38%;
+      }
+   }
+}
+@media (max-width:600px) {
+   .popUp {
+      &>*{
+         right:145px;
+         transform: scale(1.5);
+         margin-left: 135px;
+      }
+   }
+}
+@media (max-width:450px) {
+   .popUp {
+      &>*{
+         right:110px;
+         transform: scale(1.5);
+         margin-left: 135px;
+      }
+   }
+}
+@media (max-width:400px) {
+   .popUp {
+      &>*{
+         right:35px;
+         transform: scale(1.25);
+         margin-left: 135px;
+      }
    }
 }

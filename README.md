@@ -7,6 +7,8 @@ This is my project which should be similar to notes. It's will be updating in so
 At this moment you can only add/remove/edit Notes and Tasks. All information will storage on local pc in browser, so if you open project in different browser, information also will be different. Due to protection, you can't input into your Notes and Tasks ">", "<" and "/".
 
 ## Change logs
+- v1.1 (15.02.2023):
+  - Fixed mobile view.
 - v1.0 (14.02.2023):
   - Added basic design.
   - Added Tasks.
